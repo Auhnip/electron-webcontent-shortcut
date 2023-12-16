@@ -15,7 +15,7 @@ app.whenReady().then(() => {
   win.addBrowserView(view);
   view.setBounds({ x: 0, y: 0, width: 300, height: 400 });
   view.webContents.loadURL('https://www.electronjs.org//');
-  register(view.webContents, 'Ctrl+Shift+O', () => {
+  register(view.webContents, 'Ctrl+Shift+Up', () => {
     console.log('Ctrl+Shift+O');
     view.webContents.openDevTools({ mode: 'detach' });
   });

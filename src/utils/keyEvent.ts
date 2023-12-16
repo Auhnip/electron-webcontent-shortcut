@@ -156,23 +156,30 @@ export const areKeyEventsEqual = (
   event1: IKeyEvent,
   event2: IKeyEvent
 ): boolean => {
+  if (event1 === event2) {
+    return true;
+  }
+
+  if (event1.notValid || event2.notValid) {
+    return false;
+  }
+
   const properties: (keyof IKeyEvent)[] = [
-    'key',
-    'code',
     'altKey',
     'ctrlKey',
     'metaKey',
     'shiftKey',
   ];
 
-  const areKeyPropertiesEqual = properties.every(
+  const modifiersEqual = properties.every(
     property => event1[property] === event2[property]
   );
 
-  const areNotValidPropertiesEqual =
-    (typeof event1.notValid === 'undefined' &&
-      typeof event2.notValid === 'undefined') ||
-    event1.notValid === event2.notValid;
+  const keyOrCodeEqual =
+    (typeof event1.key !== 'undefined' &&
+      event1.key.toLowerCase() === event2.key.toLowerCase()) ||
+    (typeof event2.code !== 'undefined' &&
+      event1.code.toLowerCase() === event2.code.toLowerCase());
 
-  return areKeyPropertiesEqual && areNotValidPropertiesEqual;
+  return modifiersEqual && keyOrCodeEqual;
 };
