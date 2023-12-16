@@ -1,6 +1,6 @@
 {
-  "name": "electron-wc-shortcut",
-  "version": "3.2.1",
+  "name": "electron-webcontents-shortcut",
+  "version": "1.0.2",
   "description": "register/unregister a keyboard shortcut locally to a webContents instance, using `before-input-event`",
   "repository": {
     "type": "git",
@@ -8,7 +8,6 @@
   },
   "license": "MIT",
   "author": "auhnip",
-  "main": "dist/index.js",
   "exports": {
     ".": {
       "import": {
@@ -21,9 +20,6 @@
       }
     }
   },
-  "files": [
-    "dist/**/*"
-  ],
   "scripts": {
     "start": "electron dist/example",
     "start:dev": "cross-env DEBUG=* electron --inspect=9233 dist/example",
