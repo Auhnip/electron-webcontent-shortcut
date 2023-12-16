@@ -1,6 +1,6 @@
 {
   "name": "electron-webcontents-shortcut",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "register/unregister a keyboard shortcut locally to a webContents instance, using `before-input-event`",
   "repository": {
     "type": "git",
