@@ -1,4 +1,4 @@
-# Project Name
+# electron-webcontents-shortcut
 
 ## Overview
 

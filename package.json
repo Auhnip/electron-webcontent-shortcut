@@ -4,7 +4,7 @@
   "description": "register/unregister a keyboard shortcut locally to a webContents instance, using `before-input-event`",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Auhnip/electron-webcontent-shortcut"
   },
   "license": "MIT",
   "author": "auhnip",
