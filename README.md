@@ -31,10 +31,22 @@ const shortcutManager = require('electron-webcontents-shortcut');
 Then, use the following methods to bind shortcuts:
 
 ```javascript
-// Example code
-```
+const { register } = shortcutManager;
 
-For more detailed usage instructions, please refer to the documentation.
+app.whenReady().then(() => {
+  const win = new BrowserWindow({
+    width: 600,
+    height: 400,
+  });
+
+  win.loadURL('https://www.electronjs.org//');
+
+  register(win.webContents, 'Ctrl+Shift+O', () => {
+    console.log('Ctrl+Shift+O');
+    win.webContents.openDevTools({ mode: 'detach' });
+  });
+});
+```
 
 ## Contribution
 
