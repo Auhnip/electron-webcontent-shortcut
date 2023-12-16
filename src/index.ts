@@ -17,7 +17,7 @@ const title = (webContents: WebContents) => {
     try {
       return webContents.getTitle();
     } catch (error) {
-      return 'A destroyed window';
+      return 'A destroyed webcontents';
     }
   }
   return 'An falsy value';
@@ -27,7 +27,7 @@ const unregisterAll = (webContents: WebContents): void => {
   debug(`Unregistering all shortcuts on webContents ${title(webContents)}`);
   const shortcutsOfWebContents = webContentsToShortcut.get(webContents);
   if (shortcutsOfWebContents && shortcutsOfWebContents.removeListener) {
-    // Remove listener from window
+    // Remove listener from webcontents
     shortcutsOfWebContents.removeListener();
     webContentsToShortcut.delete(webContents);
   }
