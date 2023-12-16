@@ -1,0 +1,9 @@
+# source code
+/src
+
+# example to test
+/dist/example
+
+# typescript configuration
+tsconfig.json
+tsup.config.*

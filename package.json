@@ -1,0 +1,53 @@
+{
+  "name": "electron-wc-shortcut",
+  "version": "3.2.1",
+  "description": "register/unregister a keyboard shortcut locally to a webContents instance, using `before-input-event`",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "author": "auhnip",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "start": "electron dist/example",
+    "start:dev": "cross-env DEBUG=* electron --inspect=9233 dist/example",
+    "start:brk": "cross-env DEBUG=* electron --inspect-brk=9233 dist/example",
+    "build": "tsup --config ./tsup.config.ts",
+    "dev": "tsup --config ./tsup.config.dev.ts --watch src/ "
+  },
+  "keywords": [
+    "electron",
+    "shortcuts",
+    "webContents"
+  ],
+  "dependencies": {
+    "debug": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "cross-env": "^7.0.3",
+    "electron": "^28.0.0",
+    "git-cz": "^4.9.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "electron": ">=27.0.0"
+  }
+}
