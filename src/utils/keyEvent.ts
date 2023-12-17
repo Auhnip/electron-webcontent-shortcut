@@ -130,7 +130,7 @@ export const acceleratorToKeyEvent = (accelerator: string): IKeyEvent => {
 export const inputToKeyEvent = (input: Electron.Input): IKeyEvent => {
   const event = createDefaultKeyEvent({
     code: input.code,
-    key: input.key.toLowerCase(),
+    key: input.key,
   });
 
   (['alt', 'shift', 'meta'] as const).forEach(prop => {
@@ -178,7 +178,7 @@ export const areKeyEventsEqual = (
   const keyOrCodeEqual =
     (typeof event1.key !== 'undefined' &&
       event1.key.toLowerCase() === event2.key.toLowerCase()) ||
-    (typeof event2.code !== 'undefined' &&
+    (typeof event1.code !== 'undefined' &&
       event1.code.toLowerCase() === event2.code.toLowerCase());
 
   return modifiersEqual && keyOrCodeEqual;
