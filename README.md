@@ -48,6 +48,60 @@ app.whenReady().then(() => {
 });
 ```
 
+## API
+
+### 1. `isAccelerator(input: string): boolean`
+
+Checks whether a given string is a valid representation of a keyboard accelerator. A valid accelerator should consist of any number of modifier keys followed by a regular key. For example, `Shift+Alt+P`.
+
+### 2. `unregisterAll(webContents: WebContents): void`
+
+Unregisters all keyboard shortcuts associated with the specified `webContents`.
+
+### 3. `register(webContents: WebContents, accelerator: string | string[], callback: () => void): void`
+
+Registers a keyboard shortcut on the specified `webContents`. The `accelerator` parameter can be a string or an array of strings representing the keyboard shortcut(s), and the `callback` function will be invoked when the shortcut is triggered.
+
+### 4. `unregister(webContents: WebContents, accelerator: string | string[]): void`
+
+Unregisters the specified keyboard shortcut(s) associated with the given `webContents`.
+
+### 5. `isRegistered(webContents: WebContents, accelerator: string): boolean`
+
+Checks whether a specific keyboard shortcut is registered on the specified `webContents`.
+
+### Example Usage
+
+```javascript
+const {
+  isAccelerator,
+  register,
+  unregister,
+  unregisterAll,
+  isRegistered,
+} = require('electron-webcontents-shortcut');
+
+// Check if a string is a valid accelerator
+if (isAccelerator('Ctrl+A')) {
+  const webContents = // ... obtain WebContents instance
+    // Register a keyboard shortcut
+    register(webContents, 'Ctrl+A', () => {
+      // Handle the shortcut
+    });
+
+  // Check if a shortcut is registered
+  if (isRegistered(webContents, 'Ctrl+A')) {
+    // Do something
+  }
+
+  // Unregister a shortcut
+  unregister(webContents, 'Ctrl+A');
+
+  // Unregister all shortcuts
+  unregisterAll(webContents);
+}
+```
+
 ## Contribution
 
 If you encounter any issues or have suggestions for improvement, feel free to raise an issue or submit a pull request. We welcome and appreciate your contributions!
